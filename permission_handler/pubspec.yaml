@@ -35,7 +35,7 @@ dependencies:
     git:
       url: https://github.com/mytalkgitadmin/flutter-permission-handler.git
       ref: '423760e'
-      path: ./permission_handler_apple
+      path: permission_handler_apple
 
 dev_dependencies:
   flutter_lints: ^1.0.4
