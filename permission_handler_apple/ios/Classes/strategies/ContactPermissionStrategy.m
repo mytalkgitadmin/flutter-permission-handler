@@ -33,7 +33,7 @@
 }
 
 + (PermissionStatus)permissionStatus {
-    if (@available(iOS 9.0, *)) {
+    if (@available(iOS 18.0, *)) {
         CNAuthorizationStatus status = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
 
         switch (status) {
@@ -47,6 +47,19 @@
                 return PermissionStatusGranted;
             case CNAuthorizationStatusLimited:
                 return PermissionStatusLimited;
+        }
+    } else if (@available(iOS 9.0, *)) {
+        CNAuthorizationStatus status = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
+
+        switch (status) {
+            case CNAuthorizationStatusNotDetermined:
+                return PermissionStatusDenied;
+            case CNAuthorizationStatusRestricted:
+                return PermissionStatusRestricted;
+            case CNAuthorizationStatusDenied:
+                return PermissionStatusPermanentlyDenied;
+            case CNAuthorizationStatusAuthorized:
+                return PermissionStatusGranted;
         }
 
     } else {
