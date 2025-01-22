@@ -34,7 +34,7 @@ dependencies:
   permission_handler_apple:
     git:
       url: https://github.com/mytalkgitadmin/flutter-permission-handler.git
-      ref: 'swom'
+      ref: 'develop'
       path: permission_handler_apple
 
 dev_dependencies:
